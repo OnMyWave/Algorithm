@@ -9,13 +9,13 @@ def isCorrectBracket(s):
             type_b.append(bracket)
         else:
             type_c.append(bracket)
-    for bracket in s:
-        if bracket == ']':
+    # for bracket in s:
+    #     if bracket == ']':
             
             
 
-def solution(s):
+# def solution(s):
 
-    for bracket in s:
-        if 
-    return answer
+#     for bracket in s:
+#         if 
+#     return answer
