@@ -17,3 +17,4 @@ for i in inputNumber :
         primeNumber += 1
 
 print(primeNumber)
+
