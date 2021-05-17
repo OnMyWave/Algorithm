@@ -1,3 +1,5 @@
+## 정확성 테스트만 통과, 효율성 테스트는 통과 X
+
 def solution(info, query):
     answer = []
     # Query 분리 작업 1 : 기본
@@ -9,9 +11,6 @@ def solution(info, query):
     for i in range(length):
         query_data[i] += query_data[i].pop().split()
 
-    # info_data 정렬
-    info_data = sorted(info_data, key = lambda x: x[0])
-    
     # Query 검색
     for q in query_data:
         cnt = 0 
@@ -29,7 +28,7 @@ def solution(info, query):
                                 cnt+=1
                 
         answer.append(cnt)
-    print(info_data)
+
     return answer
 
 
