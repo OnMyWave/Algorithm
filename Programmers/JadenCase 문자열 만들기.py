@@ -1,7 +1,9 @@
+
 def solution(s):
-    answer = ''
+    answer = ""
     s = s.lower()
-    word_list = [word for word in s.split()]
+    word_list = s.split(" ")
+
     for word in word_list:
         word = word.capitalize()
         answer += word + " "
