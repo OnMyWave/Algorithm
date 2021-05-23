@@ -23,3 +23,13 @@ def solution(n):
         n = n - a*(3**i)
         
     return answer[::-1]
+    
+def sigma(n):
+    sum = 0
+    i = 1
+    while sum < n:
+        sum = sum + 3**i
+        i += 1
+    return i-1
+
+print(sigma(13))
