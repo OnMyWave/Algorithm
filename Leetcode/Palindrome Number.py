@@ -75,7 +75,7 @@ class Solution(object):
         import re
 
         x = str(x).lower()
-        x = re.sub('[^a-z0-9','',x)
+        x = re.sub('[^a-z0-9]','',x)
 
         return x == x[::-1]
 
