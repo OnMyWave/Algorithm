@@ -23,3 +23,6 @@ class Solution(object):
         for item in cnter:
             if item[0] not in banned:
                 return item[0]
+        
+        # words = [word for word in re.sub(r'[^\w]','',paragraph).lower().split() if word not in banned] 
+        # 예술 그 자체
