@@ -1,3 +1,6 @@
+from typing import get_args
+
+
 class Solution(object):
     def groupAnagrams(self, strs):
         """
@@ -22,3 +25,15 @@ class Solution(object):
 
         return answer
 
+
+    def groupAnagrams2(self, strs):
+        from collections import defaultdict
+        dic = defaultdict(list)
+        for s in strs:
+            word = ''.join(sorted(s))
+            dic[word].append(s)
+        
+        return dic.values()
+
+a = Solution()
+print(a.groupAnagrams2(["eat","tea","tan","ate","nat","bat"]))
