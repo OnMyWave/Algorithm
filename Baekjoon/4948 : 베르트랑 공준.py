@@ -1,3 +1,5 @@
+import sys
+
 def prime_list(m,n):
     # 에라토스테네스의 체 초기화: n개 요소에 True 설정(소수로 간주)
     sieve = [True] * n
@@ -14,7 +16,9 @@ def prime_list(m,n):
 
 
 
-M, N = map(int,input().split())
-prime_list = prime_list(M,N+1)
-for prime in prime_list:
-    print(prime)
+while True:
+    n = int(sys.stdin.readline())
+    if n == 0 :
+        break
+    else:
+        print(len(prime_list(n+1,2*n+1)))

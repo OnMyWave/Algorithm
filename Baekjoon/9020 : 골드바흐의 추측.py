@@ -1,4 +1,6 @@
-def prime_list(m,n):
+import sys
+
+def prime_list(n):
     # 에라토스테네스의 체 초기화: n개 요소에 True 설정(소수로 간주)
     sieve = [True] * n
 
@@ -10,11 +12,15 @@ def prime_list(m,n):
                 sieve[j] = False
     sieve[1] = False
     # 소수 목록 산출
-    return [i for i in range(m, n) if sieve[i] == True]
+    return [i for i in range(2, n) if sieve[i] == True]
 
 
+T = int(input())
 
-M, N = map(int,input().split())
-prime_list = prime_list(M,N+1)
-for prime in prime_list:
-    print(prime)
+for _ in range(T):
+    n = int(input())
+    prime_numbers = prime_list(n)
+    for i in range(int(n/2)+1,0,-1):
+        if i in prime_numbers and n-i in prime_numbers:
+            print(min(i,n-i),max(i,n-i))
+            break

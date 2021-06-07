@@ -11,10 +11,3 @@ def prime_list(m,n):
     sieve[1] = False
     # 소수 목록 산출
     return [i for i in range(m, n) if sieve[i] == True]
-
-
-
-M, N = map(int,input().split())
-prime_list = prime_list(M,N+1)
-for prime in prime_list:
-    print(prime)
