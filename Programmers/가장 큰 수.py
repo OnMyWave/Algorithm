@@ -2,7 +2,7 @@
 
 from itertools import permutations
 
-def solution(numbers):
+def solution1(numbers):
     connected_number = []
     numbers = list(permutations(sorted(numbers),len(numbers)))
 
@@ -13,7 +13,7 @@ def solution(numbers):
 
 # Solution 2. 두뇌를 이용하는 사람
 
-def solution(numbers):
+def solution2(numbers):
     answer = ''
     numbers = sorted([str(number) for number in numbers], key = lambda x : x*3, reverse = True)
     return str(int(''.join(numbers)))
