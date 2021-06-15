@@ -12,3 +12,18 @@ def solution(number, k):
                 break
         cnt += 1
     return number
+
+
+def solution2(number, k):
+    number = list(map(int,number))
+    cnt = 0
+    while cnt < k:
+        max_idx = number.index(max(number))
+        min_num = max(number)
+        for i in range(max_idx):
+            min_num = min(number[i],min_num)
+        number.remove(min_num)
+        cnt += 1
+    return ''.join(list(map(str,number)))
+
+print(solution2("1924", 2))
