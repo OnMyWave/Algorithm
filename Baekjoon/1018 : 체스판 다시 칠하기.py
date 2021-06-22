@@ -1,5 +1,5 @@
 # M, N 입력 받기
-M,N = map(int,input().split())
+N,M = map(int,input().split())
 
 # Board 만들기
 board = []
@@ -7,15 +7,16 @@ for _ in range(N):
     board.append([i for i in input()])
 
 # Board Type
-type1 = [["W","B","W","B","W","B","W","B"] if i%2 else ["B","W","B","W","B","W","B","W"] for i in range(8) ] # W가 먼저
+type1 = [["B" if j%2 else "W" for j in range(8)] if i%2 else ["W" if j%2 else "B" for j in range(8)] for i in range(8) ] # W가 먼저
 
-type2 = [["W","B","W","B","W","B","W","B"] if i%2 else ["W","B","W","B","W","B","W","B"]for i in range(8) ]  # B가 먼저
+type2 = [["W" if j%2 else "B" for j in range(8)] if i%2 else ["B" if j%2 else "W" for j in range(8)] for i in range(8) ]  # B가 먼저
 
 import sys
 # board 탐색
 min_cnt = sys.maxsize
-for i in range(N-8):
-    for j in range(M-8):
+
+for i in range(N-7):
+    for j in range(M-7):
         error1 = 0
         error2 = 0 
         for k in range(8):
@@ -27,4 +28,3 @@ for i in range(N-8):
         min_cnt = min(error1,error2,min_cnt)
 
 print(min_cnt)
-
