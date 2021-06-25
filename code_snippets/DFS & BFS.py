@@ -45,4 +45,5 @@ def iterative_bfs(start_v):
 # Backtracking
 # 해결책에 대한 후보를 구축해 나아가다 가능성이 없다고 판단되는 즉시
 # 후보를 포기 (Backtrack)하여 정답을 찾아가는 범용적인 알고리즘이다.
-# DFS가 Backtracking Algorithm의 뼈대
+# DFS가 Backtracking Algorithm의 BackBone
+# 백트래킹의 이미지 --> Pruning 
