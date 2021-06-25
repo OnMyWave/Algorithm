@@ -12,5 +12,27 @@ def prime_list(n):
     # 소수 목록 산출
     return [i for i in range(2, n) if sieve[i] == True]
 
-def solution(n):
-    return len(prime_list(n+1))
+def isPrime(number):
+    if number <= 1 :
+        return False
+    for i in range(2,number):
+        if number % i == 0 :
+            return False
+    return True
+
+
+
+
+
+from itertools import permutations
+
+def solution(numbers):
+    answer = []
+    num_list = []
+    for i in range(1,len(numbers)+1):
+        for j in list(permutations(sorted(numbers),i)):
+            num_list.append(int(''.join(j)))
+    for k in set(num_list):
+        if isPrime(k):
+            answer.append(k)
+    return len(answer)
