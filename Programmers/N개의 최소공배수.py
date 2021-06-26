@@ -1,19 +1,27 @@
-import numpy as np
-
 def solution(arr):
-    arr = np.array(arr)
-    small = min(arr)
-    gcd = 0
-    lcm = 0
-    for i in range(1,small+1):
-        if arr % i == np.zeros(len(arr)):
-            gcd = i
-    lcm = small / gcd * max(arr)
-    
-    return [gcd,lcm]
+    lcm = []
+    answer = 1
+    # 소인수 분해
+    for num in arr:
+        num_list = []
+        div = 2
+        while num != 1:
+            if num % div == 0:
+                num_list.append(div)
+                num /= div
+                div = 2
+            else:
+                div += 1
+        lcm.append(num_list)
 
-# print(solution[2,6,8,14])
-arr = np.array([2,6,8,14])
-arr2 = arr % 2
-
+    # 최소공배수 구하기
+    for i in lcm:
+        while i :
+            j = i[0]
+            answer *= j
+            for k in lcm :
+                if j in k:
+                    k.remove(j)
+    print(lcm)
+    return answer
 
