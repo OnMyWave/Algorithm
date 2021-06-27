@@ -1,24 +1,12 @@
-from math import ceil
+import math
+
 def solution(w,h):
-    # a = 0
-    # b = min(w,h)
-    #
-    # for i in range(1,b+1):
-    #     if w % i == 0 and h % i == 0:
-    #         a = i
-    #
-    # new_w = w // a
-    # new_h = h // a
-    tan = h/w
-
-    c= 0
-    tile = 0
-    for i in range(1,w+1):
-        d = tan*i
-        tile += ceil(d-c)
-        c = d
-
-    return w*h - tile
-
-
-solution(8,12)
+    if w == 1 or h == 1:
+        return 0
+    elif w == h:
+        return w*h - w
+    else:
+        answer = 0
+        for i in range(1,w+1):
+            answer += math.ceil(h*i/w)-math.floor(h*(i-1)/w)
+        return w*h - answer
