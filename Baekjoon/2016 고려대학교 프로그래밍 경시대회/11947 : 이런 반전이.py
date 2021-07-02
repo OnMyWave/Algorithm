@@ -7,8 +7,8 @@ def solution(n):
 T = int(sys.stdin.readline())
 for _ in range(T):
     num = int(sys.stdin.readline())
-    max_num = -1
-    for i in range(1,num+1):
-        max_num = max(max_num,i*solution(i))
-    
-    print(max_num)
+    mid = (5*(10**(len(str(num))-1))) #가운데 수 
+    if mid > num: #가운데 수와 입력받은 수를 비교 
+        print(solution(num)*num)
+    else:
+        print(mid*(mid-1))
