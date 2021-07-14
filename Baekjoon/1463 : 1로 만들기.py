@@ -1,17 +1,17 @@
-def makeOne(n,cnt):
-    if n == 1:
-        return cnt
-    else:
-        cnt += 1
-        if n % 3 == 0 :
-            return makeOne(n//3,cnt)
-        elif (n - 1) % 3 == 0 :
-            return makeOne(n-1,cnt)
-        elif n % 2 == 0 :
-            return makeOne(n//2,cnt)
-        else :
-            return makeOne(n-1,cnt)
+N = int(input())
 
-print(makeOne(10,0))
-print(makeOne(3,0))
-print(makeOne(1000,0))
+nums = [0] * (N+1)
+
+for i in range(2,N+1):
+    if i%2 : # 홀수
+        if i%3 : 
+            nums[i] = nums[i-1] + 1
+        else:
+            nums[i] = min(nums[i-1],nums[int(i/3)])+1
+    else:
+        if i%3 :
+            nums[i] = min(nums[i-1],nums[int(i/2)])+1
+        else:
+            nums[i] = min(nums[i-1],nums[int(i/3)],nums[int(i/2)])+1
+
+print(nums[-1])
