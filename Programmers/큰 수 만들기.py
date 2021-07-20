@@ -27,3 +27,17 @@ def solution2(number, k):
     return ''.join(list(map(str,number)))
 
 print(solution2("1924", 2))
+
+def solution3(number, k):
+    length = len(number)
+    if length == 1:
+        return number[0]
+    else:
+        while k:
+            for i in range(length-1):
+                if number[i] < number[i+1]:
+                    number = number[:i] + number[i+1:]
+                    break
+            length -= 1
+            k -= 1
+        return number
