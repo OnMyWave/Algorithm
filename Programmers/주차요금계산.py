@@ -1,6 +1,10 @@
 import math
 from collections import defaultdict
 
+def splitIntoHHMM(hhmm):
+    hh, mm = map(int,hhmm.split(':'))
+    return hh, mm 
+    
 def solution(fees, records):
     answer = []
     times = defaultdict(int)
@@ -11,12 +15,12 @@ def solution(fees, records):
             cars[r[1]] = r[0]
         else:
             in_time = cars[r[1]]
-            ih,im = map(int,in_time.split(':')) # in_hour, in_minute
+            ih, im = splitIntoHHMM(in_time)
             
             out_time = r[0]
-            oh,om = map(int,out_time.split(':')) # out_hour, out_minute
+            oh,om = splitIntoHHMM(out_time)
             
-            diff = (oh-ih)*60 + (om - im)  
+            diff = (oh - ih) * 60 + (om - im)  
             times[r[1]] += diff
             del cars[r[1]]
 
@@ -24,8 +28,8 @@ def solution(fees, records):
     if len(cars) :
         for k, v in cars.items():
             in_time = cars[k]
-            ih,im = map(int,in_time.split(':')) # in_hour, in_minute
-            diff = (23-ih)*60 + (59 - im) 
+            ih, im = splitIntoHHMM(in_time)
+            diff = (23 - ih) * 60 + (59 - im) 
             times[k] += diff
     times = sorted(times.items(), key = lambda x : int(x[0]))      
 
